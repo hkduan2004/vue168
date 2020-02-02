@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <!-- <script scr="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div>
+            <label for="">Id:
+                <input type="text" v-model="id">
+            </label>
+            <label for="">Name:
+                <input type="text" v-model="name">
+            </label>
+            <input type="button" value="添加" @click="add">
+        </div>
+        <!-- 在组件中，必须使用key值 -->
+        <div v-for="item in list" :key="item.id">
+            <input type="checkbox">
+            {{item.id}}--------{{item.name}}</div>
+    </div>
+    <button onclick="numbers.forEach(myFunction)">点我</button>
+ 
+<p>数组元素总和：<span id="demo"></span></p>
+ 
+<script>
+var sum = 0;
+var numbers = [65, 44, 12, 4];
+ 
+function myFunction(item) {
+    sum += item;
+    demo.innerHTML = sum;
+}
+</script>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                id:"",
+                name:"",
+                list:[
+                    {id:1, name:"李斯"},
+                    {id:2, name:"赵高"},
+                    {id:3, name:"嬴政"},
+                    {id:4, name:"韩非"},
+                    {id:5, name:"荀子"}
+                ]
+            },
+            methods:{
+                add(){
+                    this.list.unshift({id:this.id, name:this.name})
+                }
+            }
+        })
+    </script>
+</body>
+</html>

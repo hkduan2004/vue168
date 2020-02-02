@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <style>
+        .v-enter,
+        .v-leave-to{
+            opacity:0;
+        }
+        .v-enter-active,
+        .v-leaver-active{
+            transition:all 1s ease;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p v-cloak>11111{{msg}}2222</p>
+        <div v-html='msg2'></div>
+        <h4 v-text='msg'></h4>
+        <input type="button" value = 'toggle' @click ='flag=!flag'>
+        <transition>
+            <h3 v-if = 'flag'>这是一个h3</h3>
+        </transition>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                flag:true,
+                msg:'1234',
+                msg2:'<h1>哈哈，我是一个大大的h1</h1>'
+            },
+        })
+    </script>
+</body>
+</html>

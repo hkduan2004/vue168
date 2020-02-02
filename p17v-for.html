@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div v-for="(item,i) in list">{{item.id}}--{{item.name}}--{{i}} </div>
+        <div>------------------------------</div>
+        <div v-for="(val,key) in user">{{val}}----{{key}}</div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                list:[
+                    {id:1,name:"zs"},
+                    {id:2,name:"dh"},
+                    {id:3,name:"ab"},
+                    {id:4,name:"er"},
+                ],
+                user:{
+                    id:1,
+                    name:"托尼老师",
+                    gender:"男"
+                }
+            },
+            methods:{
+
+            }
+        })
+    </script>
+</body>
+</html>

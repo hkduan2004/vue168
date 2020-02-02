@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!-- <div :style="{color:'red', 'font-weight':'200','font-size':'40px'}">字体样式</div> -->
+        <!-- <div :style="styleNum1">字体样式</div> -->
+        <div :style="[styleNum1,styleNum2]">字体样式</div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                styleNum1:{color:'blue', 'font-weight':'200'},
+                styleNum2:{'font-size':'30px','font-style':'italic'},
+                styleNum3:{background:'red'}
+                // 6250 8755 7431  0107
+                //北京银行 6589
+            },
+            methods:{
+                
+            }
+        })
+    </script>
+</body>
+</html>

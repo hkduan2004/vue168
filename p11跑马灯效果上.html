@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-cloak v-text v-html</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        
+        <input type="button" value="浪起来" :title="mytitle + 'abcdef'" @click="lang">
+        <input type="button" value="低调" :title="mytitle" @click='stop'>
+        <h4>{{msg}}</h4>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'猥琐发育，别浪~~！',
+                mytitle:'说明文字',
+                intervalId:null //定时器id
+            },
+            methods:{
+                show(){
+                    alert('12345')
+                },
+                lang(){
+                    // console.log(this.msg)
+                    
+                    // var _this = this
+                    if (this.intervalId != null) return;
+                    this.intervalId = setInterval(() => {
+                        //获取到头部第一个字符
+                        var start = this.msg.substr(0,1)
+                        //获取到尾部字符
+                        var end = this.msg.substr(1)
+                        this.msg = end+start
+
+                    },400)
+                },
+                stop(){
+                    clearInterval(this.intervalId)
+                    this.intervalId = null
+                    
+                }
+            }
+            
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-cloak v-text v-html</title>
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+</head>
+<body>
+        <div id="app">
+                <p v-cloak>11111{{msg}}2222</p> <!--防止闪烁-->
+                <div v-html='msg2'></div>
+                <h4 v-text='msg'></h4>
+        </div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                flag:true,
+                msg:'1234',
+                msg2:'<h1>哈哈11，我是一个大大的h1</h1>'
+            },
+        })
+    </script>
+</body>
+</html>
